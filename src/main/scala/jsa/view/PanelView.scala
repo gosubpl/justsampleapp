@@ -4,7 +4,7 @@ import scala.xml.NodeSeq
 
 object PanelView {
    def apply(): NodeSeq = {
-     <div><Lift:comet type="PanelCometActor"/></div>
+     <div><lift:comet type="PanelCometActor"/></div>
    }
 
  }

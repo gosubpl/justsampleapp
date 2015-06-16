@@ -23,9 +23,9 @@ class Boot /* extends Loggable */ {
 
     val entries = List(
       Menu(S ? "Home") / "index",
-      Menu(S ? "Login") / "login" >> ifLoggedIn >> mainMenu,
+      Menu(S ? "Login") / "login" >> ifNotLoggedIn >> mainMenu,
       Menu(S ? "Logout") / "logout",
-      Menu(S ? "Panel") / "panel" >> ifNotLoggedIn >> mainMenu, // this will not be visible unless isLoggedIn is true
+      Menu(S ? "Panel") / "panel" >> ifLoggedIn >> mainMenu, // this will not be visible as long as isLoggedIn is true
       Menu(S ? "End") / "end"
     )
 
