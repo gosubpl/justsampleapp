@@ -1,3 +1,6 @@
+http://maven-repository.com/artifact/im.mange/driveby_2.11
+0.3.24
+
 In / in -> factory of drivers
 
 use like that
@@ -14,3 +17,27 @@ clickAdd() = { assert(ElementVisible(Id(addNew))); click(Id(addNew)); assert(Ele
 accountId(key: Int) = ... enter(Id(...))) etc.
 
 assertSth(m: String) = assert(TextEquals(Id(errorMessageId(someAccountTextBox)), m))
+
+trait MockitoHelper { // much like standard MockitoSugar in scalaTest
+	implicit class Stubbed[T](c: => T) {
+		def returns(t: T) {
+			when(c).thenReturn(t)
+		}
+
+		def throws[E <: Throwable](t: E) {
+			when(c).thenThrow(t)
+		}
+	}
+
+	def once() = times(1)
+
+	def classOf[T : ClassTag] : Class[T] = classTag[T].runtimeClass.asInstanceOf[Class[T]]
+
+	def mock[T : ClassTag] : T = mockitoMock(classOf[T])
+
+	def mock[T <: AnyRef : ClassTag](defaultAnswer: Answer[_]) : T = mockitoMock(classOf[T], defaultAnswer)
+
+	def isEq[T](v: T) = Matchers.eq(v)
+
+	def any[T : ClassTag] = Matchers.any[T]()
+}
