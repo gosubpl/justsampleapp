@@ -21,7 +21,7 @@ object BuildSettings {
     parallelExecution := true,
     parallelExecution in Test := true,
     //        resolvers := Resolvers.all
-    libraryDependencies ++= akka ++ testing ++ slick ++ lift ++ oneOff,
+    libraryDependencies ++= akka ++ testing ++ slick ++ lift ++ scalaz ++ oneOff,
 
     javaOptions ++= Seq("-Xmx1G", "-server"),
 
