@@ -40,4 +40,8 @@ trait MockitoHelper { // much like standard MockitoSugar in scalaTest
 	def isEq[T](v: T) = Matchers.eq(v)
 
 	def any[T : ClassTag] = Matchers.any[T]()
+
+	// mockService.getDataFor(any[DataSourceType], isEq(thisGroup)) returns List(1,2,3)
 }
+
+// backdoor, servicefactory extends factory
