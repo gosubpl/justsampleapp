@@ -1,0 +1,16 @@
+In / in -> factory of drivers
+
+use like that
+
+val page = in.loggedInToDoSomething() // now page is a driver
+
+page.clickAdd().accountId(10).setLimit(50).clickSave()
+
+page.assertLimitErrorMessage("kaboom")
+
+driver does not have to have anything in common with the standard driver, it just uses the browser logic to drive the test, like below:
+
+clickAdd() = { assert(ElementVisible(Id(addNew))); click(Id(addNew)); assert(ElementVisible(Id(newAdded))) }
+accountId(key: Int) = ... enter(Id(...))) etc.
+
+assertSth(m: String) = assert(TextEquals(Id(errorMessageId(someAccountTextBox)), m))
