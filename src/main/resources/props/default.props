@@ -1,0 +1,5 @@
+jsa.db.name=hello
+jsa.db.user=world
+jsa.db.pass=secret
+jsa.db.enabled=true
+jsa.data.location=/tmp/somewhere
