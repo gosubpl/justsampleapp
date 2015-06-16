@@ -15,6 +15,7 @@ object Dependencies {
   private val slickVersion = "3.0.0"
   private val liftVersion = "2.6.2"
   private val jettyVersion = "8.1.7.v20120910"
+  private val jetbootVersion = "0.0.72"
   //private val driveByVersion mockitoVersion liftVersion ...
 
   val testing = Seq(
@@ -38,7 +39,9 @@ object Dependencies {
   )
 
   val oneOff = Seq (
-    "org.eclipse.jetty" % "jetty-webapp" % jettyVersion
+    "org.eclipse.jetty" % "jetty-webapp" % jettyVersion,
+    "com.h2database" % "h2" % h2Version,
+    "im.mange" %% "jetboot" % jetbootVersion
   )
 }
 
