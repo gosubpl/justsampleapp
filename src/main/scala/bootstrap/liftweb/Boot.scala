@@ -1,7 +1,7 @@
 package bootstrap.liftweb
 
-import net.liftweb._
-import net.liftweb.common.Loggable
+import jsa.view.{LogoutView, LoginView, PanelView}
+import net.liftweb.common.{Full, Loggable}
 import net.liftweb.http.{NotFoundAsTemplate, ParsePath, S, LiftRules}
 import net.liftweb.sitemap.Loc.{If, LocGroup}
 import net.liftweb.sitemap.{SiteMap, Menu}
@@ -36,6 +36,14 @@ class Boot /* extends Loggable */ {
         ParsePath(List("exceptions", "404"), "html", false, false))
     })
 
+    LiftRules.viewDispatch.append {
+      case List("login") => Left(() => Full(LoginView()))
+      case List("logout") => Left(() => Full(LogoutView()))
+      case List("panel") => Left(() => Full(PanelView()))
+    }
+
     println("Application ready")
   }
+
+
 }
