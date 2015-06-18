@@ -45,3 +45,9 @@ trait MockitoHelper { // much like standard MockitoSugar in scalaTest
 }
 
 // backdoor, servicefactory extends factory
+
+AkkaSystem should be fully parametrised with custom ports, not only the backgarden
+otherwise integration tests will be hard
+so there should be a separate configFactory and AkkaBoot should depend on that
+the external test runner should be creating a new parametrised app and perform tests on that
+remember that tests have to be runnable from the console too
